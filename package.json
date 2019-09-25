@@ -1,0 +1,26 @@
+{
+  "name": "render.iconfont",
+  "version": "1.0.0",
+  "description": "可以将阿里图标库的icon、svg、unicode渲染到html的小工具",
+  "main": "tool.iconfont.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kisnnnnn/render.iconfont.git"
+  },
+  "keywords": [
+    "s8350671"
+  ],
+  "author": "Kisnnnnn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kisnnnnn/render.iconfont/issues"
+  },
+  "homepage": "https://github.com/Kisnnnnn/render.iconfont#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}

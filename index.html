@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <div>
+      <div>
+        <span class="fonticon" data-name="讨论区_line"></span>
+        这是标题
+      </div>
+      
+      <span class="fonticon" data-name="日历_line"></span>
+
+      <div>
+        <span class="fonticon2" data-name="日历_line"></span>
+        这是标题2
+      </div>
+    </div>
+  </body>
+  <script src="./util.iconfont.js"></script>
+
+  <script>
+    new fontIcon({
+      type: 'class',
+      size: 40,
+      selector: '.fonticon',
+      className: 'icon-custom'
+    })
+
+    new fontIcon({
+      size: 30,
+      selector: '.fonticon2',
+      className: 'icon-custom2'
+    })
+  </script>
+</html>
