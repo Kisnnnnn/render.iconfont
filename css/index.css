@@ -1,0 +1,42 @@
+.icon-custom {
+  color: #ff9999;
+}
+html {
+  font-size: 14px;
+  color: #333;
+}
+p {
+  margin: 5px 0;
+  color: #384259;
+}
+h4 {
+  margin: 5px 0 15px 0;
+  color: #384259;
+  font-size: 16px;
+}
+ul {
+  list-style-type: circle;
+}
+
+code {
+  line-height: 24px;
+  padding: 0 4px;
+  background-color: #8785a2;
+  border-radius: 3px;
+  color: #fff;
+}
+blockquote {
+  font-size: 90%;
+  color: #999;
+  border-left: 4px solid #112d4e;
+  padding: 10px;
+  margin: 20px 0;
+  background-color: #3f72af;
+  color: #fff;
+}
+.demo {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: #f6f6f6;
+}

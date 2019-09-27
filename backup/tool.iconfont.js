@@ -87,7 +87,7 @@
 
   let findIcon = (iconname, arr) => arr.find(({ name }) => name === iconname);
 
-  let addStyle = url => {
+  let addStyle = async url => {
     // 动态添样式表
     var oStyle = document.createElement('link');
 
@@ -110,25 +110,24 @@
       return false;
     }
 
-    this._getIconData(options.path).then(iconArray => {
-      switch (options.type) {
-        case 'svg':
-          this._initSvgIcon(options, iconArray);
-          break;
-        case 'unicode':
-          this._initUnicode(options, iconArray);
-          break;
-        default:
-          this._initClass(options, iconArray);
-          break;
-      }
-    });
+    switch (options.type) {
+      case 'svg':
+        this._initSvgIcon(options);
+        break;
+      case 'unicode':
+        this._initUnicode(options);
+        break;
+      default:
+        this._initClass(options);
+        break;
+    }
   }
   FontIcon.prototype = {
-    _initSvgIcon(options, iconArray) {
+    async _initSvgIcon(options) {
       let path = options.path + '/';
 
-      let iconListElem = this.iconListElem;
+      let iconArray = await this._getIconData(path),
+        iconListElem = this.iconListElem;
 
       for (let i = 0; i < iconListElem.length; i++) {
         let itemElem = iconListElem[i],
@@ -151,19 +150,20 @@
         }
       }
       // 动态添加js和样式表
-      addStyle('./lib/svg-fonticon.css');
+      await addStyle('./lib/svg-fonticon.css');
 
       var oScr = document.createElement('script');
 
       oScr.src = path + 'iconfont.js';
       document.body.appendChild(oScr);
     },
-    _initClass(options, iconArray) {
+    async _initClass(options) {
       let path = options.path + '/';
 
-      let iconListElem = this.iconListElem;
+      let iconArray = await this._getIconData(path),
+        iconListElem = this.iconListElem;
 
-      addStyle(path + 'iconfont.css');
+      await addStyle(path + 'iconfont.css');
 
       for (let i = 0; i < iconListElem.length; i++) {
         let iconName = findIcon(iconListElem[i].dataset.name, iconArray)
@@ -178,12 +178,13 @@
         iconElem = null;
       }
     },
-    _initUnicode(options, iconArray) {
+    async _initUnicode(options) {
       let path = options.path + '/';
 
-      let iconListElem = this.iconListElem;
+      let iconArray = await this._getIconData(path),
+        iconListElem = this.iconListElem;
 
-      addStyle(path + 'iconfont.css');
+      await addStyle(path + 'iconfont.css');
 
       if (options.width || options.height) {
         console.erro('配置项中的宽高度只对「symbol」类型有效，请使用Size!');
@@ -201,22 +202,19 @@
         iconElem = null;
       }
     },
-    _getIconData(path) {
-      return new Promise((resolve, reject) => {
-        fetch(path + '/iconfont.json')
-          .then(res => {
-            if (res.ok) {
-              return res.json();
-            }
-            reject(res);
-          })
-          .then(res => {
-            resolve(res.glyphs);
-          })
-          .catch(err => {
-            return err;
-          });
-      });
+    async _getIconData(path) {
+      let iconJson = await fetch(path + '/iconfont.json')
+        .then(res => {
+          if (res.ok) {
+            return res.json();
+          }
+          return Promise.reject(res);
+        })
+        .catch(err => {
+          return -1;
+        });
+
+      return iconJson.glyphs;
     }
   };
 
