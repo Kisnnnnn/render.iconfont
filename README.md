@@ -33,9 +33,9 @@
 
 ```js
 new fontIcon({
-  path: './example_svg',
+  path: './example',
   type: 'unicode',
-  selector: '.fonticon-unicode',
+  selector: '.fonticon',
   className: 'icon-custom2'
 });
 ```
