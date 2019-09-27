@@ -10,7 +10,7 @@
 
 1.我们可以直接点击阿里的「iconfont」的下载代码
 
-![image]('public/img/pic1.png')
+![image]('https://github.com/Kisnnnnn/render.iconfont/blob/master/public/img/pic1.png')
 
 2.找到你下载好的代码，添加到你的项目中
 
