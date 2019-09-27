@@ -10,11 +10,11 @@
 
 1.我们可以直接点击阿里的「iconfont」的下载代码
 
-![image]('./public/img/pic1.png')
+![image]('public/img/pic1.png')
 
 2.找到你下载好的代码，添加到你的项目中
 
-![image]('./public/img/pic2.jpg')
+![image]('public/img/pic2.jpg')
 
 3.记住你的路径，在你的 html 上，引入小工具
 
