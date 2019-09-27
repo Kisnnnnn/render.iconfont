@@ -10,11 +10,11 @@
 
 1.我们可以直接点击阿里的「iconfont」的下载代码
 
-!(image)['./public/img/pic1.png']
+![image]('./public/img/pic1.png')
 
 2.找到你下载好的代码，添加到你的项目中
 
-!(image)['./public/img/pic2.jpg']
+![image]('./public/img/pic2.jpg')
 
 3.记住你的路径，在你的 html 上，引入小工具
 
@@ -22,17 +22,48 @@
 <script src="./dist/min/tool.iconfont.min.js"></script>
 ```
 
-4.实例化小工具
+4.将需要图标化的容器，添加`data-name`，并且定义类名或者 id
 
+```html
+<span class="fonticon" data-name="讨论区_line"></span>
+<span class="fonticon" data-name="日历_line"></span>
 ```
-    new fontIcon({
-      path: './example_svg',
-      type: 'unicode',
-      size: 30,
-      selector: '.fonticon-unicode',
-      className: 'icon-custom2'
-    });
+
+5.实例化小工具
+
+```js
+new fontIcon({
+  path: './example_svg',
+  type: 'unicode',
+  selector: '.fonticon-unicode',
+  className: 'icon-custom2'
+});
 ```
+
+### 配置项
+
+- path
+  - 描述：读取图标文件夹的路径
+  - 类型：`String`
+  - 默认值：'./icon/'
+- selector
+  - 描述：图标的容器
+  - 默认值：`'.fonticon'`
+- type
+  - 描述：选择文类型
+    - `class` font-class 引用
+    - `unicode` unicode 引用
+    - `svg` Symbol 引用
+  - 类型：`String`
+  - 默认值：`'class'`
+- className
+  - 描述：给图标的自定义 class
+- size
+  - 描述： `class`、`unicode`引用的图标大小
+- width
+  - 描述： `symbol`引用的图标的宽度
+- height
+  - 描述： `symbol`引用的图标的高度
 
 ### 我们该怎么选择图标的类型？
 
@@ -66,3 +97,15 @@ Unicode 是字体在网页端最原始的应用方式，特点是：
 - 通过一些技巧，支持像字体那样，通过`font-size`,`color`来调整样式。
 - 兼容性较差，支持 IE9+，及现代浏览器。
 - 浏览器渲染 SVG 的性能一般，还不如 png。
+
+#### 问题
+
+在利用`babel`进行转义的时候，原先的代码含有`async`/`await`
+
+转义完成却报错了
+
+```
+Uncaught ReferenceError: regeneratorRuntime is not defined
+```
+
+根据官网说明，我安装了`regenerator runtime`,却提示我`require is not defined`,我不想 webpack，是否有别的办法？

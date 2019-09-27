@@ -1,7 +1,7 @@
 'use strict';
 (function(window, doc) {
   let defaultOptions = {
-    path: '../icon/',
+    path: './icon/',
     type: 'class',
     className: '',
     selector: '.fonticon'
