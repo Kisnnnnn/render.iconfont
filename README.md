@@ -10,11 +10,11 @@
 
 1.我们可以直接点击阿里的「iconfont」的下载代码
 
-![image]('https://raw.githubusercontent.com/Kisnnnnn/render.iconfont/master/public/img/pic1.png')
+![image.png](https://i.loli.net/2019/09/27/U9dwFPIl7ZJmi2S.png)
 
 2.找到你下载好的代码，添加到你的项目中
 
-![image]('https://raw.githubusercontent.com/Kisnnnnn/render.iconfont/master/public/img/pic2.jpg')
+![image.png](https://i.loli.net/2019/09/27/LwFBiJlobgaTPQn.png)
 
 3.记住你的路径，在你的 html 上，引入小工具
 
@@ -98,11 +98,7 @@ Unicode 是字体在网页端最原始的应用方式，特点是：
 - 兼容性较差，支持 IE9+，及现代浏览器。
 - 浏览器渲染 SVG 的性能一般，还不如 png。
 
-#### 说明
-
-部分文字说明以及底层代码来自[iconfont](https://www.iconfont.cn)
-
-#### 问题
+### 问题
 
 在利用`babel`进行转义的时候，原先的代码含有`async`/`await`
 
@@ -113,3 +109,7 @@ Uncaught ReferenceError: regeneratorRuntime is not defined
 ```
 
 根据官网说明，我安装了`regenerator runtime`,却提示我`require is not defined`,我不想 webpack，是否有别的办法？
+
+## 说明
+
+部分文字说明以及底层代码来自[iconfont](https://www.iconfont.cn)
